@@ -29,7 +29,9 @@ export class AuthService {
       .post<AuthResponseData>(
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseAPIKey,
         {
+          // tslint:disable-next-line:object-literal-shorthand
           email: email,
+          // tslint:disable-next-line:object-literal-shorthand
           password: password,
           returnSecureToken: true
         }
@@ -50,9 +52,11 @@ export class AuthService {
   login(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' + environment.firebaseAPIKey,
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.firebaseAPIKey,
         {
+          // tslint:disable-next-line:object-literal-shorthand
           email: email,
+          // tslint:disable-next-line:object-literal-shorthand
           password: password,
           returnSecureToken: true
         }
